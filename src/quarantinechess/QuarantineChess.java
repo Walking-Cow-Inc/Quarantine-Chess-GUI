@@ -12,12 +12,16 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.Set;
 
+
+
 /**
  *
  * @author Vatsav and Jaymin
  */
 public class QuarantineChess {
-
+    
+// This is our OG main method
+    
     /**
      * @param args the command line arguments
      */

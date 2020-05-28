@@ -7,6 +7,8 @@ package quarantinechess;
 
 import java.awt.*;
 import java.awt.event.*;
+import java.util.HashSet;
+import java.util.Set;
 import javax.swing.*;
 
 /**
@@ -16,6 +18,8 @@ import javax.swing.*;
 public class Test extends JFrame {
     private JButton[][] board = new JButton[8][8];
     private Container cont;
+    Board b;
+    boolean firstMove;
 
     /**
      * Creates new form Test
@@ -27,6 +31,10 @@ public class Test extends JFrame {
         
         Color white = new Color(225, 200, 160);
         Color black = new Color(164, 110, 57); 
+        
+        b = new Board();
+        
+        firstMove = true;
         
         // Create a Button Handler for the Actions of all the Buttons
         ButtonHandler bh = new ButtonHandler();
@@ -121,10 +129,26 @@ public class Test extends JFrame {
                     else
                         board[i][j].setEnabled(false);
                 }
-            } 
-            JOptionPane.showMessageDialog(null, "Button pressed is " + row + ", " + col);
+            }
+            if(firstMove){
+                Set<Coordinate> moves = new HashSet<Coordinate>();
+                if(b.board[row][col] != null)
+                    moves = b.board[row][col].displayMoves(b);
+                else
+                    JOptionPane.showMessageDialog(null, "No piece there m8");
+                for(Coordinate each : moves)
+                    board[each.x][each.y].setEnabled(true);
+            }
+            else{
+                for(int i = 0; i < 8; i++){
+                    for(int j = 0; j < 8; j++)
+                        board[i][j].setEnabled(true);
+                }
+            }
+            firstMove = !firstMove;
         }
     }
+
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
