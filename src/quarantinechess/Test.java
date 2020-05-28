@@ -20,6 +20,19 @@ public class Test extends JFrame {
     private Container cont;
     Board b;
     boolean firstMove;
+    
+    Icon bpawn = new ImageIcon("pictures\\bpawn.png");
+    Icon brook = new ImageIcon("pictures\\brook.png");
+    Icon bknight = new ImageIcon("pictures\\bknight.png");
+    Icon bbishop = new ImageIcon("pictures\\bbishop.png");
+    Icon bking = new ImageIcon("pictures\\bking.png");
+    Icon bqueen = new ImageIcon("pictures\\bqueen.png");
+    Icon wpawn = new ImageIcon("pictures\\wpawn.png");
+    Icon wrook = new ImageIcon("pictures\\wrook.png");
+    Icon wknight = new ImageIcon("pictures\\wknight.png");
+    Icon wbishop = new ImageIcon("pictures\\wbishop.png");
+    Icon wking = new ImageIcon("pictures\\wking.png");
+    Icon wqueen = new ImageIcon("pictures\\wqueen.png");
 
     /**
      * Creates new form Test
@@ -47,11 +60,12 @@ public class Test extends JFrame {
                     board[i][j].setBackground(white);
                 else
                     board[i][j].setBackground(black);
+                setImages(i, j);
                 board[i][j].addActionListener(bh);
             }
         }
         
-        setSize(500,500);
+        setSize(550,550);
         setVisible(true);
         initComponents();
     }
@@ -114,6 +128,47 @@ public class Test extends JFrame {
                 new Test().setVisible(true);
             }
         });
+    }
+    
+    private void setImages(int i, int j){
+        if(b.board[i][j] == null)
+            return;
+        if(b.board[i][j] instanceof Pawn){
+            if(b.board[i][j].race == 'b')
+                board[i][j].setIcon(bpawn);
+            else
+                board[i][j].setIcon(wpawn);
+        }
+        else if(b.board[i][j] instanceof Bishop){
+            if(b.board[i][j].race == 'b')
+                board[i][j].setIcon(bbishop);
+            else
+                board[i][j].setIcon(wbishop);
+        }
+        else if(b.board[i][j] instanceof King){
+            if(b.board[i][j].race == 'b')
+                board[i][j].setIcon(bking);
+            else
+                board[i][j].setIcon(wking);
+        }
+        else if(b.board[i][j] instanceof Knight){
+            if(b.board[i][j].race == 'b')
+                board[i][j].setIcon(bknight);
+            else
+                board[i][j].setIcon(wknight);
+        }
+        else if(b.board[i][j] instanceof Rook){
+            if(b.board[i][j].race == 'b')
+                board[i][j].setIcon(brook);
+            else
+                board[i][j].setIcon(wrook);
+        }
+        else if(b.board[i][j] instanceof Queen){
+            if(b.board[i][j].race == 'b')
+                board[i][j].setIcon(bqueen);
+            else
+                board[i][j].setIcon(wqueen);
+        }
     }
     
     private class ButtonHandler implements ActionListener{

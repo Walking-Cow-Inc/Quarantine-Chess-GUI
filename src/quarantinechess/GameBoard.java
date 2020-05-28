@@ -162,6 +162,7 @@ public class GameBoard extends javax.swing.JFrame {
         c47.setText("4, 7");
 
         c13.setText("1, 3");
+        c13.setNextFocusableComponent(c00);
 
         c14.setText("1, 4");
 
