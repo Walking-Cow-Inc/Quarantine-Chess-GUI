@@ -19,6 +19,7 @@ public class Test extends JFrame {
     private JButton[][] board = new JButton[8][8];
     private Container cont;
     Board b;
+    int irow, icol;
     boolean firstMove;
     
     Icon bpawn = new ImageIcon("pictures\\bpawn.png");
@@ -41,6 +42,9 @@ public class Test extends JFrame {
         super("Quarantine Chess");
         cont = getContentPane();
         cont.setLayout(new GridLayout(8,8));
+        
+        irow = 0;
+        icol = 0;
         
         Color white = new Color(225, 200, 160);
         Color black = new Color(164, 110, 57); 
@@ -65,7 +69,7 @@ public class Test extends JFrame {
             }
         }
         
-        setSize(550,550);
+        setSize(600,600);
         setVisible(true);
         initComponents();
     }
@@ -85,11 +89,11 @@ public class Test extends JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 638, Short.MAX_VALUE)
+            .addGap(0, 593, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 486, Short.MAX_VALUE)
+            .addGap(0, 574, Short.MAX_VALUE)
         );
 
         pack();
@@ -132,7 +136,7 @@ public class Test extends JFrame {
     
     private void setImages(int i, int j){
         if(b.board[i][j] == null)
-            return;
+            board[i][j].setIcon(null);
         if(b.board[i][j] instanceof Pawn){
             if(b.board[i][j].race == 'b')
                 board[i][j].setIcon(bpawn);
@@ -170,7 +174,7 @@ public class Test extends JFrame {
                 board[i][j].setIcon(wqueen);
         }
     }
-    
+
     private class ButtonHandler implements ActionListener{
         public void actionPerformed(ActionEvent e){
             Object o = e.getSource();
@@ -185,24 +189,54 @@ public class Test extends JFrame {
                         board[i][j].setEnabled(false);
                 }
             }
+            
+            // Selects piece and does something based on click number
             if(firstMove){
+                irow = row;
+                icol = col;
+                //JOptionPane.showMessageDialog(null, "Turn " + QuarantineChess.turn);
                 Set<Coordinate> moves = new HashSet<Coordinate>();
                 if(b.board[row][col] != null)
                     moves = b.board[row][col].displayMoves(b);
-                else
+                else{
                     JOptionPane.showMessageDialog(null, "No piece there m8");
+                    for(int i = 0; i < 8; i++){
+                        for(int j = 0; j < 8; j++){
+                            board[i][j].setEnabled(true);
+                        }
+                    }
+                    return;
+                }
                 for(Coordinate each : moves)
                     board[each.x][each.y].setEnabled(true);
             }
-            else{
+            
+            // Turn won't change because the same button is pressed twice
+            else if(row == irow && col == icol){
+                JOptionPane.showMessageDialog(null, "Same button twice");
                 for(int i = 0; i < 8; i++){
-                    for(int j = 0; j < 8; j++)
+                    for(int j = 0; j < 8; j++){
                         board[i][j].setEnabled(true);
+                    }
+                }
+            }
+            
+            else{
+                //QuarantineChess.turn = QuarantineChess.turn == 'b' ? 'w' : 'b';
+                QuarantineChess.buttonMain(b, irow, icol, row, col);
+                System.out.println("Testicle: \n" + b);
+                for(int i = 0; i < 8; i++){
+                    for(int j = 0; j < 8; j++){
+                        setImages(i, j);
+                        board[i][j].setEnabled(true);
+                    }
                 }
             }
             firstMove = !firstMove;
         }
     }
+    
+    
 
     
 
