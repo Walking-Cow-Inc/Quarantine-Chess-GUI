@@ -18,7 +18,7 @@ import javax.swing.JOptionPane;
  *
  * @author Vatsav and Jaymin
  */
-public class QuarantineChess {
+public class MainGame {
     
 // This is our OG main method
     
@@ -41,7 +41,6 @@ public class QuarantineChess {
         Board old;
 	switch(turn) {
 		case 'w': 
-		//do {
                     if(b.board[x][y] == null || b.board[x][y].race != turn || b.board[x][y].displayMoves(b).isEmpty()) {
 			JOptionPane.showMessageDialog(null, "No chances, in more than one way");
 			return;
@@ -56,18 +55,14 @@ public class QuarantineChess {
                     // This is not a checkmate	
                     if(((King)b.board[b.kingPos[1].x][b.kingPos[1].y]).checkCheck) {
                     	// This means the move was invalid
-                    	System.out.println(b);
                         b = copy(b, old);
                     	JOptionPane.showMessageDialog(null, "Move was invalid, try not to kill ur King");
                     	turn = 'w';
-                        System.out.println("New: \n" + b);
                         return;
                     }
-		//}while(((King)b.board[b.kingPos[1].x][b.kingPos[1].y]).checkCheck);
             break; // Break out of the switch case
 		
 		case 'b':
-		//do {
                     if(b.board[x][y] == null || b.board[x][y].race != turn || b.board[x][y].displayMoves(b).isEmpty()) {
 			JOptionPane.showMessageDialog(null, "No chances, in more than one way");
 			return;
@@ -82,14 +77,11 @@ public class QuarantineChess {
                     // This is not a checkmate
                     if(((King)b.board[b.kingPos[0].x][b.kingPos[0].y]).checkCheck) {
                         // This means the move was invalid
-                        System.out.println(b);
                         b = copy(b, old);
 			JOptionPane.showMessageDialog(null, "Move was invalid, try not to kill ur King");
 			turn = 'b';
-                        System.out.println("New: \n" + b);
                         return;
                     }
-		//} while(((King)b.board[b.kingPos[0].x][b.kingPos[0].y]).checkCheck);
             break; // Break out of the switch case
 	}
 	
@@ -217,7 +209,7 @@ public class QuarantineChess {
                     }
                     // Now we have all the moves of the black pieces
                     if(moves.contains(b.kingPos[1])){
-                    	System.out.println("Check");
+                    	JOptionPane.showMessageDialog(null, "Check");
                     	((King)b.board[b.kingPos[1].x][b.kingPos[1].y]).checkCheck = true;
                     }
                     else 
@@ -233,7 +225,7 @@ public class QuarantineChess {
                     }
                     // Now we have all the moves of the white pieces
                     if(moves.contains(b.kingPos[0])){
-			System.out.println("Check");
+			JOptionPane.showMessageDialog(null, "Check");
 			((King)b.board[b.kingPos[0].x][b.kingPos[0].y]).checkCheck = true;
                     }
                     else 
@@ -242,7 +234,7 @@ public class QuarantineChess {
                     a = 0;
 		}
 		else 
-                    System.out.print("Re-");
+                    System.out.print("");
 	}
 	return gameNotOver(b);
 }
@@ -382,7 +374,6 @@ public class QuarantineChess {
 	for(Coordinate each : b.black) {
 		allMoves.addAll(b.board[each.x][each.y].displayMoves(b));
 	}
-	System.out.println("Size = " + allMoves.size());
 	if(allMoves.size() == 0)
 		return 3;
 	
@@ -390,7 +381,6 @@ public class QuarantineChess {
 	for(Coordinate each : b.white) {
 		allMoves.addAll(b.board[each.x][each.y].displayMoves(b));
 	}
-	System.out.println(allMoves.size());
 	if(allMoves.size() == 0)
 		return 3;
 	

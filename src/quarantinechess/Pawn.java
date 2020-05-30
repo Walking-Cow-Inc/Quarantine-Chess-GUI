@@ -8,6 +8,7 @@ package quarantinechess;
 import java.util.HashSet;
 import java.util.Scanner;
 import java.util.Set;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -101,12 +102,13 @@ public class Pawn extends Piece{
 	public void convertIfPossible(Board b) {
 		if(checkConversion()) {
 			int  q = 0;
-			System.out.println("Conversion is possible for your shitty pawn. Do you want to give his life purpose? Yes you do. There's no point if you don't");
+			System.out.println();
 			while(q == 0){
-				System.out.println("Enter one of the following to change to: (1)Rook (2)Bishop (3)Knight (4)Queen.");
-				int choice;
-				Scanner sc = new Scanner(System.in);
-				choice = sc.nextInt();
+                            int choice;
+                            choice = Integer.parseInt(JOptionPane.showInputDialog(null, "Conversion is possible for your shitty pawn. "
+                                    + "Do you want to give his life purpose? Yes you do. There's no point if you don't"
+                             + "Enter one of the following to change to: (1)Rook (2)Bishop (3)Knight (4)Queen."));
+				
 				q++;
 				switch(choice) {
 				case 1: b.board[x][y] = new Rook(x, y, race);
