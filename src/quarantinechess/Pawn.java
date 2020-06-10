@@ -105,9 +105,9 @@ public class Pawn extends Piece{
 			System.out.println();
 			while(q == 0){
                             int choice;
-                            choice = Integer.parseInt(JOptionPane.showInputDialog(null, "Conversion is possible for your shitty pawn. "
-                                    + "Do you want to give his life purpose? Yes you do. There's no point if you don't"
-                             + "Enter one of the following to change to: (1)Rook (2)Bishop (3)Knight (4)Queen."));
+                            choice = Integer.parseInt(JOptionPane.showInputDialog(null, "Conversion of pawn is possible."
+                                    + "\nEnter one of the following to change pawn to: (1)Rook (2)Bishop "
+                                    + "(3)Knight (4)Queen."));
 				
 				q++;
 				switch(choice) {
@@ -120,7 +120,7 @@ public class Pawn extends Piece{
 				break;
 				case 4: b.board[x][y] = new Queen(x, y, race);
 				break;
-				default: System.out.println("C'mon man, you had 4 choices. Not like you have even one irl.\n");
+				default: JOptionPane.showMessageDialog(null, "Enter a valid number", "Invalid Input", JOptionPane.ERROR_MESSAGE);
 				q=0;
 				}
 			}

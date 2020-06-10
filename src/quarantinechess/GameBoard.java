@@ -46,8 +46,10 @@ public class GameBoard extends JFrame {
         irow = 0;
         icol = 0;
         
-        Color white = new Color(225, 200, 160);
-        Color black = new Color(164, 110, 57); 
+//        Color white = new Color(225, 200, 160);
+//        Color black = new Color(164, 110, 57); 
+        Color white = new Color(180, 180, 255);
+        Color black = new Color(90, 90, 255); 
         
         b = new Board();
         
@@ -72,6 +74,7 @@ public class GameBoard extends JFrame {
         setSize(600,600);
         setVisible(true);
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -89,11 +92,11 @@ public class GameBoard extends JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 593, Short.MAX_VALUE)
+            .addGap(0, 589, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 574, Short.MAX_VALUE)
+            .addGap(0, 565, Short.MAX_VALUE)
         );
 
         pack();
@@ -136,43 +139,69 @@ public class GameBoard extends JFrame {
     }
     
     private void setImages(int i, int j){
-        if(b.board[i][j] == null)
+        if(b.board[i][j] == null){
             board[i][j].setIcon(null);
+            board[i][j].setDisabledIcon(null);
+        }
         if(b.board[i][j] instanceof Pawn){
-            if(b.board[i][j].race == 'b')
+            if(b.board[i][j].race == 'b'){
                 board[i][j].setIcon(bpawn);
-            else
+                board[i][j].setDisabledIcon(bpawn);
+            }
+            else{
                 board[i][j].setIcon(wpawn);
+                board[i][j].setDisabledIcon(wpawn);
+            }
         }
         else if(b.board[i][j] instanceof Bishop){
-            if(b.board[i][j].race == 'b')
+            if(b.board[i][j].race == 'b'){
                 board[i][j].setIcon(bbishop);
-            else
+                board[i][j].setDisabledIcon(bbishop);
+            }
+            else{
                 board[i][j].setIcon(wbishop);
+                board[i][j].setDisabledIcon(wbishop);
+            }
         }
         else if(b.board[i][j] instanceof King){
-            if(b.board[i][j].race == 'b')
+            if(b.board[i][j].race == 'b'){
                 board[i][j].setIcon(bking);
-            else
+                board[i][j].setDisabledIcon(bking);
+            }
+            else{
                 board[i][j].setIcon(wking);
+                board[i][j].setDisabledIcon(wking);
+            }
         }
         else if(b.board[i][j] instanceof Knight){
-            if(b.board[i][j].race == 'b')
+            if(b.board[i][j].race == 'b'){
                 board[i][j].setIcon(bknight);
-            else
+                board[i][j].setDisabledIcon(bknight);
+            }
+            else{
                 board[i][j].setIcon(wknight);
+                board[i][j].setDisabledIcon(wknight);
+            }
         }
         else if(b.board[i][j] instanceof Rook){
-            if(b.board[i][j].race == 'b')
+            if(b.board[i][j].race == 'b'){
                 board[i][j].setIcon(brook);
-            else
+                board[i][j].setDisabledIcon(brook);
+            }
+            else{
                 board[i][j].setIcon(wrook);
+                board[i][j].setDisabledIcon(wrook);
+            }
         }
         else if(b.board[i][j] instanceof Queen){
-            if(b.board[i][j].race == 'b')
+            if(b.board[i][j].race == 'b'){
                 board[i][j].setIcon(bqueen);
-            else
+                board[i][j].setDisabledIcon(bqueen);
+            }
+            else{
                 board[i][j].setIcon(wqueen);
+                board[i][j].setDisabledIcon(wqueen);
+            }
         }
     }
 
@@ -200,7 +229,7 @@ public class GameBoard extends JFrame {
                 if(b.board[row][col] != null)
                     moves = b.board[row][col].displayMoves(b);
                 else{
-                    JOptionPane.showMessageDialog(null, "No piece there m8");
+                    JOptionPane.showMessageDialog(null, "No piece there.", "Invalid Input", JOptionPane.ERROR_MESSAGE);
                     for(int i = 0; i < 8; i++){
                         for(int j = 0; j < 8; j++){
                             board[i][j].setEnabled(true);

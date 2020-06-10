@@ -42,7 +42,7 @@ public class MainGame {
 	switch(turn) {
 		case 'w': 
                     if(b.board[x][y] == null || b.board[x][y].race != turn || b.board[x][y].displayMoves(b).isEmpty()) {
-			JOptionPane.showMessageDialog(null, "No chances, in more than one way");
+			JOptionPane.showMessageDialog(null, "No white piece there", "Invalid Input", JOptionPane.ERROR_MESSAGE);
 			return;
                     }
                     // It's not empty
@@ -56,7 +56,7 @@ public class MainGame {
                     if(((King)b.board[b.kingPos[1].x][b.kingPos[1].y]).checkCheck) {
                     	// This means the move was invalid
                         b = copy(b, old);
-                    	JOptionPane.showMessageDialog(null, "Move was invalid, try not to kill ur King");
+                    	JOptionPane.showMessageDialog(null, "Move was invalid", "Illegal Move", JOptionPane.ERROR_MESSAGE);
                     	turn = 'w';
                         return;
                     }
@@ -64,7 +64,7 @@ public class MainGame {
 		
 		case 'b':
                     if(b.board[x][y] == null || b.board[x][y].race != turn || b.board[x][y].displayMoves(b).isEmpty()) {
-			JOptionPane.showMessageDialog(null, "No chances, in more than one way");
+			JOptionPane.showMessageDialog(null, "No black piece there", "Invalid Input", JOptionPane.ERROR_MESSAGE);
 			return;
                     }
                     // It's not empty
@@ -78,7 +78,7 @@ public class MainGame {
                     if(((King)b.board[b.kingPos[0].x][b.kingPos[0].y]).checkCheck) {
                         // This means the move was invalid
                         b = copy(b, old);
-			JOptionPane.showMessageDialog(null, "Move was invalid, try not to kill ur King");
+			JOptionPane.showMessageDialog(null, "Move was invalid", "Illegal Move", JOptionPane.ERROR_MESSAGE);
 			turn = 'b';
                         return;
                     }
@@ -86,15 +86,15 @@ public class MainGame {
 	}
 	
 	if(over == 1){
-            JOptionPane.showMessageDialog(null, "White wins. I don't have a dream");
+            JOptionPane.showMessageDialog(null, "White wins.");
             System.exit(0);
         }
 	else if(over == 2){
-            JOptionPane.showMessageDialog(null, "Black wins. Slavery is no more");
+            JOptionPane.showMessageDialog(null, "Black wins.");
             System.exit(0);
         }
         else if(over == 3){
-            JOptionPane.showMessageDialog(null, "Well that was pointless. Stalemate");
+            JOptionPane.showMessageDialog(null, "Stalemate.");
             System.exit(0);
         }
     }
@@ -209,7 +209,7 @@ public class MainGame {
                     }
                     // Now we have all the moves of the black pieces
                     if(moves.contains(b.kingPos[1])){
-                    	JOptionPane.showMessageDialog(null, "Check");
+                    	JOptionPane.showMessageDialog(null, "Check", "", JOptionPane.WARNING_MESSAGE);
                     	((King)b.board[b.kingPos[1].x][b.kingPos[1].y]).checkCheck = true;
                     }
                     else 
@@ -225,7 +225,7 @@ public class MainGame {
                     }
                     // Now we have all the moves of the white pieces
                     if(moves.contains(b.kingPos[0])){
-			JOptionPane.showMessageDialog(null, "Check");
+			JOptionPane.showMessageDialog(null, "Check", "", JOptionPane.WARNING_MESSAGE);
 			((King)b.board[b.kingPos[0].x][b.kingPos[0].y]).checkCheck = true;
                     }
                     else 
