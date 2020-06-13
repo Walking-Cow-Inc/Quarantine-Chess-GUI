@@ -252,7 +252,6 @@ public class GameBoard extends JFrame {
             }
             
             else{
-                //QuarantineChess.turn = QuarantineChess.turn == 'b' ? 'w' : 'b';
                 MainGame.buttonMain(b, irow, icol, row, col);
                 for(int i = 0; i < 8; i++){
                     for(int j = 0; j < 8; j++){

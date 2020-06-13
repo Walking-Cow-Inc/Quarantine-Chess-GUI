@@ -70,8 +70,14 @@ public class Pawn extends Piece{
 			//move++;
 		}
 		
+            // Made a new board
+            // Go through all the possible moves
+            // Do the possible move on the pseudo-board
+            // Checked the value of checkCheck for the King
+            // If the value is true then remove that move
+                
 		
-		return possible;
+            return possible;
 	}
 	
 	public Set<Coordinate> killableMoves(Board b){

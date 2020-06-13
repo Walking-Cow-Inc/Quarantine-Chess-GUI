@@ -40,48 +40,48 @@ public class MainGame {
 	int over = 0;
         Board old;
 	switch(turn) {
-		case 'w': 
-                    if(b.board[x][y] == null || b.board[x][y].race != turn || b.board[x][y].displayMoves(b).isEmpty()) {
-			JOptionPane.showMessageDialog(null, "No white piece there", "Invalid Input", JOptionPane.ERROR_MESSAGE);
-			return;
-                    }
-                    // It's not empty
-                    possible = b.board[x][y].displayMoves(b);
-                    turn = 'b';
-                    old = new Board(b);
-                    over = moves(b, x, y, possible, newx, newy); // TODO: Change the moves function
-                    if(over != 0)
-                    	break;
-                    // This is not a checkmate	
-                    if(((King)b.board[b.kingPos[1].x][b.kingPos[1].y]).checkCheck) {
-                    	// This means the move was invalid
-                        b = copy(b, old);
-                    	JOptionPane.showMessageDialog(null, "Move was invalid", "Illegal Move", JOptionPane.ERROR_MESSAGE);
-                    	turn = 'w';
-                        return;
-                    }
+            case 'w': 
+                if(b.board[x][y] == null || b.board[x][y].race != turn || b.board[x][y].displayMoves(b).isEmpty()) {
+                    JOptionPane.showMessageDialog(null, "No white piece there", "Invalid Input", JOptionPane.ERROR_MESSAGE);
+                    return;
+                }
+                // It's not empty
+                possible = b.board[x][y].displayMoves(b);
+                turn = 'b';
+                old = new Board(b);
+                over = moves(b, x, y, possible, newx, newy); // TODO: Change the moves function
+                if(over != 0)
+                    break;
+                // This is not a checkmate	
+                if(((King)b.board[b.kingPos[1].x][b.kingPos[1].y]).checkCheck) {
+                    // This means the move was invalid
+                    b = copy(b, old);
+                    JOptionPane.showMessageDialog(null, "Move was invalid", "Illegal Move", JOptionPane.ERROR_MESSAGE);
+                    turn = 'w';
+                    return;
+                }
             break; // Break out of the switch case
 		
-		case 'b':
-                    if(b.board[x][y] == null || b.board[x][y].race != turn || b.board[x][y].displayMoves(b).isEmpty()) {
-			JOptionPane.showMessageDialog(null, "No black piece there", "Invalid Input", JOptionPane.ERROR_MESSAGE);
-			return;
-                    }
-                    // It's not empty
-                    possible = b.board[x][y].displayMoves(b);
-                    turn = 'w';
-                    old = new Board(b);
-                    over = moves(b, x, y, possible, newx, newy); // TODO: Change the moves function
-                    if(over != 0)
-                        break;
-                    // This is not a checkmate
-                    if(((King)b.board[b.kingPos[0].x][b.kingPos[0].y]).checkCheck) {
-                        // This means the move was invalid
-                        b = copy(b, old);
-			JOptionPane.showMessageDialog(null, "Move was invalid", "Illegal Move", JOptionPane.ERROR_MESSAGE);
-			turn = 'b';
-                        return;
-                    }
+            case 'b':
+                if(b.board[x][y] == null || b.board[x][y].race != turn || b.board[x][y].displayMoves(b).isEmpty()) {
+                    JOptionPane.showMessageDialog(null, "No black piece there", "Invalid Input", JOptionPane.ERROR_MESSAGE);
+                    return;
+                }
+                // It's not empty
+                possible = b.board[x][y].displayMoves(b);
+                turn = 'w';
+                old = new Board(b);
+                over = moves(b, x, y, possible, newx, newy); // TODO: Change the moves function
+                if(over != 0)
+                    break;
+                // This is not a checkmate
+                if(((King)b.board[b.kingPos[0].x][b.kingPos[0].y]).checkCheck) {
+                    // This means the move was invalid
+                    b = copy(b, old);
+                    JOptionPane.showMessageDialog(null, "Move was invalid", "Illegal Move", JOptionPane.ERROR_MESSAGE);
+                    turn = 'b';
+                    return;
+                }
             break; // Break out of the switch case
 	}
 	
@@ -107,31 +107,31 @@ public class MainGame {
 	b.kingPos[1] = old.kingPos[1];
 	b.board = new Piece[8][8];
 	for(int i = 0; i < 8; i++) {
-		for(int j = 0; j < 8; j++) {
+            for(int j = 0; j < 8; j++) {
+                
+		if(old.board[i][j] instanceof King)
+                    b.board[i][j] = new King((King)old.board[i][j]);
 			
-			if(old.board[i][j] instanceof King)
-				b.board[i][j] = new King((King)old.board[i][j]);
+		else if(old.board[i][j] instanceof Queen)
+                    b.board[i][j] = new Queen((Queen)old.board[i][j]);
 			
-			else if(old.board[i][j] instanceof Queen)
-				b.board[i][j] = new Queen((Queen)old.board[i][j]);
+		else if(old.board[i][j] instanceof Bishop)
+                    b.board[i][j] = new Bishop((Bishop)old.board[i][j]);
 			
-			else if(old.board[i][j] instanceof Bishop)
-				b.board[i][j] = new Bishop((Bishop)old.board[i][j]);
+		else if(old.board[i][j] instanceof Knight)
+                    b.board[i][j] = new Knight((Knight)old.board[i][j]);
 			
-			else if(old.board[i][j] instanceof Knight)
-				b.board[i][j] = new Knight((Knight)old.board[i][j]);
+		else if(old.board[i][j] instanceof Rook)
+                    b.board[i][j] = new Rook((Rook)old.board[i][j]);
 			
-			else if(old.board[i][j] instanceof Rook)
-				b.board[i][j] = new Rook((Rook)old.board[i][j]);
-			
-			else if(old.board[i][j] instanceof Pawn)
-				b.board[i][j] = new Pawn((Pawn)old.board[i][j]);
-		}
+		else if(old.board[i][j] instanceof Pawn)
+                    b.board[i][j] = new Pawn((Pawn)old.board[i][j]);
+            }
 	}
         return b;
     }
     
-    private static int moves(Board b, int x, int y, Set<Coordinate> possible, int newx, int newy) throws InputMismatchException{
+    public static int moves(Board b, int x, int y, Set<Coordinate> possible, int newx, int newy) throws InputMismatchException{
 	int a = 1;
 	while(a != 0) {
 		if(b.board[x][y] instanceof King) {	
@@ -174,7 +174,7 @@ public class MainGame {
                     }
 		}
 		
-		if(possible.contains(new Coordinate(newx, newy))) {
+		//if(possible.contains(new Coordinate(newx, newy))) {
 			
                     b.board[newx][newy] = b.board[x][y]; // Changes the position of the old piece on the board
                     b.board[newx][newy].x = newx;
@@ -214,6 +214,8 @@ public class MainGame {
                     }
                     else 
 			((King)b.board[b.kingPos[1].x][b.kingPos[1].y]).checkCheck = false;
+                    
+                    moves = new HashSet<Coordinate>();
 			
                     for(Coordinate each : b.white) {
 			if(b.board[each.x][each.y] instanceof King)
@@ -232,9 +234,9 @@ public class MainGame {
 			((King)b.board[b.kingPos[0].x][b.kingPos[0].y]).checkCheck = false;
                     
                     a = 0;
-		}
-		else 
-                    System.out.print("");
+		//}
+//		else 
+//                    System.out.print("");
 	}
 	return gameNotOver(b);
 }
