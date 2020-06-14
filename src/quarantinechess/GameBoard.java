@@ -237,9 +237,13 @@ public class GameBoard extends JFrame {
                     }
                     return;
                 }
+                
+                moves.removeAll(MainGame.kingNoKill(b, row, col));
+                
                 for(Coordinate each : moves)
                     board[each.x][each.y].setEnabled(true);
             }
+            
             
             // Turn won't change because the same button is pressed twice
             else if(row == irow && col == icol){
@@ -252,7 +256,7 @@ public class GameBoard extends JFrame {
             }
             
             else{
-                MainGame.buttonMain(b, irow, icol, row, col);
+                MainGame.buttonMain(b, irow, icol, row, col, MainGame.kingNoKill(b, irow, icol));
                 for(int i = 0; i < 8; i++){
                     for(int j = 0; j < 8; j++){
                         setImages(i, j);

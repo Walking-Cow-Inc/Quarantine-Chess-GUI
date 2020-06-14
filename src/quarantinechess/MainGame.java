@@ -35,7 +35,7 @@ public class MainGame {
     }
     
         // TODO code application logic here
-    public static void buttonMain(Board b, int x, int y, int newx, int newy){
+    public static void buttonMain(Board b, int x, int y, int newx, int newy, Set<Coordinate> invalid){
 	Set<Coordinate> possible = new HashSet<>();
 	int over = 0;
         Board old;
@@ -49,7 +49,7 @@ public class MainGame {
                 possible = b.board[x][y].displayMoves(b);
                 turn = 'b';
                 old = new Board(b);
-                over = moves(b, x, y, possible, newx, newy); // TODO: Change the moves function
+                over = moves(b, x, y, possible, newx, newy, invalid); // TODO: Change the moves function
                 if(over != 0)
                     break;
                 // This is not a checkmate	
@@ -71,7 +71,7 @@ public class MainGame {
                 possible = b.board[x][y].displayMoves(b);
                 turn = 'w';
                 old = new Board(b);
-                over = moves(b, x, y, possible, newx, newy); // TODO: Change the moves function
+                over = moves(b, x, y, possible, newx, newy, invalid); // TODO: Change the moves function
                 if(over != 0)
                     break;
                 // This is not a checkmate
@@ -131,7 +131,7 @@ public class MainGame {
         return b;
     }
     
-    public static int moves(Board b, int x, int y, Set<Coordinate> possible, int newx, int newy) throws InputMismatchException{
+    public static int moves(Board b, int x, int y, Set<Coordinate> possible, int newx, int newy, Set<Coordinate> invalid) {
 	int a = 1;
 	while(a != 0) {
 		if(b.board[x][y] instanceof King) {	
@@ -238,7 +238,7 @@ public class MainGame {
 //		else 
 //                    System.out.print("");
 	}
-	return gameNotOver(b);
+	return gameNotOver(b, invalid);
 }
     private static List<Coordinate> getKiller(Board b, char race){
 	List<Coordinate> killers = new ArrayList<>();
@@ -262,7 +262,7 @@ public class MainGame {
     }
 
     // TODO: Add stalemate and stuff
-    private static int gameNotOver(Board b) {
+    private static int gameNotOver(Board b, Set<Coordinate> invalid) {
 	// For Checkmate: 3 parts
 	// Part 1: King is in check and has no available moves
 	
@@ -368,20 +368,99 @@ public class MainGame {
 		
 		return 2;
 	}
-	return stalemateCheck(b);
+	return stalemateCheck(b, invalid);
+    }
+    
+    public static Set<Coordinate> kingNoKill(Board b, int x, int y){
+        Set<Coordinate> invalid = new HashSet<Coordinate>();
+        
+        if(b.board[x][y] instanceof King)
+            return invalid;
+        
+        for(Coordinate each1 : b.board[x][y].displayMoves(b)){
+            char race = (b.board[x][y].race == 'b') ? 'b' : 'w';
+            Board fake = new Board();
+            fake = copy(fake, b);
+            fake.board[each1.x][each1.y] = fake.board[x][y];
+            fake.board[x][y].x = each1.x;
+            fake.board[x][y].y = each1.y;
+            
+            switch(fake.board[x][y].race){
+                case 'b': fake.black.remove(new Coordinate(x, y));
+                fake.black.add(new Coordinate(each1.x, each1.y));
+                    break;
+                case 'w':fake.white.remove(new Coordinate(x, y));
+                fake.white.add(new Coordinate(each1.x, each1.y));
+                    break;
+            }
+            
+            fake.board[x][y] = null;
+            
+            Set<Coordinate> moves = new HashSet<Coordinate>();
+                for(Coordinate each : fake.black) {
+                    if(fake.board[each.x][each.y] instanceof King)
+                        continue;
+                    if(fake.board[each.x][each.y] instanceof Pawn)
+                        moves.addAll(((Pawn)(fake.board[each.x][each.y])).killableMoves(fake));
+                    else
+                        moves.addAll(fake.board[each.x][each.y].displayMoves(fake));
+                }
+                // Now we have all the moves of the black pieces
+                
+                if(moves.contains(fake.kingPos[1])){
+                    ((King)fake.board[fake.kingPos[1].x][fake.kingPos[1].y]).checkCheck = true;
+                }
+                else {
+                    if(fake.board[fake.kingPos[1].x][fake.kingPos[1].y] instanceof King)
+                        ((King)fake.board[fake.kingPos[1].x][fake.kingPos[1].y]).checkCheck = false;
+                }
+                    
+                moves = new HashSet<Coordinate>();
+			
+                for(Coordinate each : fake.white) {
+                    if(fake.board[each.x][each.y] instanceof King)
+                        continue;
+                    if(fake.board[each.x][each.y] instanceof Pawn)
+                        moves.addAll(((Pawn)(fake.board[each.x][each.y])).killableMoves(fake));
+                    else
+                        moves.addAll(fake.board[each.x][each.y].displayMoves(fake));
+                }
+                // Now we have all the moves of the white pieces
+                
+                if(moves.contains(fake.kingPos[0])){
+                    ((King)fake.board[fake.kingPos[0].x][fake.kingPos[0].y]).checkCheck = true;
+                }
+                else {
+                    if(fake.board[fake.kingPos[0].x][fake.kingPos[0].y] instanceof King)
+                        ((King)fake.board[fake.kingPos[0].x][fake.kingPos[0].y]).checkCheck = false;
+                }
+                
+                switch(race){
+                    case 'b': if(((King)fake.board[fake.kingPos[0].x][fake.kingPos[0].y]).checkCheck)  
+                        invalid.add(each1);
+                        break;
+                    case 'w': if(((King)fake.board[fake.kingPos[1].x][fake.kingPos[1].y]).checkCheck)
+                        invalid.add(each1);
+                        break;
+                }
+        }
+        System.out.println("Called");
+        return invalid;
     }
 
-    public static int stalemateCheck(Board b) {
+    public static int stalemateCheck(Board b, Set<Coordinate> invalid) {
 	Set<Coordinate> allMoves = new HashSet<Coordinate>();
 	for(Coordinate each : b.black) {
-		allMoves.addAll(b.board[each.x][each.y].displayMoves(b));
+            allMoves.addAll(b.board[each.x][each.y].displayMoves(b));
+            allMoves.removeAll(kingNoKill(b, each.x, each.y));
 	}
 	if(allMoves.size() == 0)
 		return 3;
 	
 	allMoves = new HashSet<>();
 	for(Coordinate each : b.white) {
-		allMoves.addAll(b.board[each.x][each.y].displayMoves(b));
+            allMoves.addAll(b.board[each.x][each.y].displayMoves(b));
+            allMoves.removeAll(kingNoKill(b, each.x, each.y));
 	}
 	if(allMoves.size() == 0)
 		return 3;
