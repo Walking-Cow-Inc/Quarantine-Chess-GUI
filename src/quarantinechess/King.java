@@ -49,7 +49,7 @@ public class King extends Piece {
             } else if (b.board[each.x][each.y] instanceof Pawn) {
                 opponentMoves.addAll(((Pawn) (b.board[each.x][each.y])).killableMoves(b));
             } else {
-                opponentMoves.addAll(b.board[each.x][each.y].displayMoves(b));
+                opponentMoves.addAll(b.board[each.x][each.y].destructiveMoves(b));
             }
         }
 
