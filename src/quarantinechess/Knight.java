@@ -14,14 +14,29 @@ import java.util.Set;
  */
 public class Knight extends Piece {
 
+    /**
+     * Default constructor for the Knight class
+     * ## Not used
+     */
     public Knight() {
         super();
     }
 
+    /**
+     * Constructor for the Knight which takes in the position and the race
+     * 
+     * @param x
+     * @param y
+     * @param race 
+     */
     public Knight(int x, int y, char race) {
         super(x, y, race, 'H');
     }
 
+    /**
+     * Copy constructor for the Knight class
+     * @param q 
+     */
     public Knight(Knight q) {
         x = q.x;
         y = q.y;
