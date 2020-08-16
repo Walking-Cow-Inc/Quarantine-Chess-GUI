@@ -64,4 +64,7 @@ Castling is a special kind of move in which the King piece is allowed to move mo
 
 ![Queen-side castling](https://github.com/Vatsav14/Project-Pictures/blob/master/Chess/chess-qcastling.gif)
 
+### Pawn-conversion
+This is a move that allows a Pawn piece to convert into any other piece (except a King) when it reaches the final row of the opposing size.  
+
 
