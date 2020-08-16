@@ -42,3 +42,8 @@ When you click on a piece to move it, you can see the positions to which it is a
 A piece can capture an opposing piece by moving to the block in which it is positioned. This eliminates the piece from the game.
 
 ![Capturing pieces](https://github.com/Vatsav14/Project-Pictures/blob/master/Chess/chess-capture.gif)
+
+### Checkmate
+As mentioned before, the objective of the game is to induce a checmate on the opposing team's King piece. When the game reaches this situation, the player who was able to capture the King wins the match. The checkmate shown in this animation is called **Fool's Mate.** This is the fastest possible checkmate in the game of chess. You can read more about this [here.](https://www.chess.com/article/view/the-fastest-possible-checkmate-in-chess)
+
+![Fool's mate checkmate](https://github.com/Vatsav14/Project-Pictures/blob/master/Chess/chess-checkmate.gif)
