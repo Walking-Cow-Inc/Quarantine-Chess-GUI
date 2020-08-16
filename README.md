@@ -70,7 +70,9 @@ This is a move that allows a Pawn piece to convert into any other piece (except 
 ![Pawn conversion](https://github.com/Vatsav14/Project-Pictures/blob/master/Chess/chess-convert.gif)
 
 ## Contributing
-If you find any bugs or errors while playing around with the program, please feel free to highlight these under the issues tab. If you would like to contribute some code, feel free to follow the steps given below to create a pull request.
+If you find any bugs or errors while playing around with the program, please feel free to highlight these under the Issues tab which you can find [here.](https://github.com/Walking-Cow-Inc/Quarantine-Chess-GUI/issues)
+
+If you would like to contribute some code, feel free to follow the steps given below to create a pull request.
 
 ### Step 1:
 * Option 1: Fork the repository using the `Fork` button on the top right.
