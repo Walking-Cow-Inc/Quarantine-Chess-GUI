@@ -1,2 +1,2 @@
 # Quarantine-Chess-GUI
-Graphical version of Quarantine chess (with other improvements)
+This is the GUI version of the previously created Quarantine Chess. 
