@@ -47,3 +47,6 @@ A piece can capture an opposing piece by moving to the block in which it is posi
 As mentioned before, the objective of the game is to induce a checmate on the opposing team's King piece. When the game reaches this situation, the player who was able to capture the King wins the match. The checkmate shown in this animation is called **Fool's Mate.** This is the fastest possible checkmate in the game of chess. You can read more about this [here.](https://www.chess.com/article/view/the-fastest-possible-checkmate-in-chess)
 
 ![Fool's mate checkmate](https://github.com/Vatsav14/Project-Pictures/blob/master/Chess/chess-checkmate.gif)
+
+### Stalemate
+A stalemate arises when a player has no possible moves that they can play that doesn't put their King piece in danger. When such a situation arises, the game is tied and both players walk away with a draw. The stalemate shown here is the fastest possible stalemate in the game of chess. Again, you can learn more about this [here.](https://www.chess.com/forum/view/game-showcase/fastest-stalemate-known-in-chess)
