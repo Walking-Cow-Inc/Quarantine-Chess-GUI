@@ -16,7 +16,6 @@ Chess is quite a complex game and there have been a lot of new rules introduced 
 
 For a more comprehensive set of rules, you can check out the FIDE Laws of Chess using this [link.](https://www.fide.com/FIDE/handbook/LawsOfChess.pdf)
 
-<a name = "usage"/>
 ## Usage
 ### Prerequisites
 To run this game, you need to have Java installed on your computer along with a Java IDE or a text editor with a Java extension (like Atom or VS Code). We recommend the Eclipse IDE since that was what we used to build this application, but feel free to run it in an editor of your choice.
@@ -76,4 +75,14 @@ If you find any bugs or errors while playing around with the program, please fee
 ### Step 1:
 * Option 1: Fork the repository using the `Fork` button on the top right.
 * Option 2: Clone the repo to your machine using the steps highlighted in the [Usage](#usage) section of the README
+
+### Step 2:
+* Add your desired modifications to the code.
+
+### Step 3:
+* Submit a new pull request using `https://github.com/Walking-Cow-Inc/Quarantine-Chess-GUI/compare`
+
+## Authors
+* Vatsav Sethupathi - [Vatsav14](https://github.com/Vatsav14)
+* Jaymin Desai - [JaDeBlue17](https://github.com/JaDeBlue17)
 
