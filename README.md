@@ -16,7 +16,7 @@ Chess is quite a complex game and there have been a lot of new rules introduced 
 
 For a more comprehensive set of rules, you can check out the FIDE Laws of Chess using this [link.](https://www.fide.com/FIDE/handbook/LawsOfChess.pdf)
 
-# How to use this project
+# Usage
 #### To run this game, you need to have Java installed on your computer along with a Java IDE or a text editor with a Java extension (like Atom or VS Code). We recommend the Eclipse IDE since that was what we used to build this application, but feel free to run it in an editor of your choice.
 
 You can download the appropriate version of Java using this link: https://java.com/en/download/help/download_options.xml
