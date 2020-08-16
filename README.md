@@ -22,3 +22,7 @@ For a more comprehensive set of rules, you can check out the FIDE Laws of Chess 
 You can download the appropriate version of Java using this link: https://java.com/en/download/help/download_options.xml
 
 You can download the Eclipse IDE using this link: https://www.eclipse.org/downloads/
+
+After this, you can clone the repository by entering `git clone https://github.com/Walking-Cow-Inc/Quarantine-Chess-GUI.git` in your command line (assuming you have git installed on your computer) and proceed to open this project in the IDE or editor of your choice.
+
+
