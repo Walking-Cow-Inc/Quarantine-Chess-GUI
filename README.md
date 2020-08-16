@@ -52,3 +52,16 @@ As mentioned before, the objective of the game is to induce a checmate on the op
 A stalemate arises when a player has no possible moves that they can play that doesn't put their King piece in danger. When such a situation arises, the game is tied and both players walk away with a draw. The stalemate shown here is the fastest possible stalemate in the game of chess. Again, you can learn more about this [here.](https://www.chess.com/forum/view/game-showcase/fastest-stalemate-known-in-chess)
 
 ![Stalemate](https://github.com/Vatsav14/Project-Pictures/blob/master/Chess/chess-stalemate.gif)
+
+### Castling
+Castling is a special kind of move in which the King piece is allowed to move more than one position in a single move. This is the only move which allows the King to move in this fashion. In King-side castling, the King moves 2 blocks across, compared to Queen-side castling where he can move 3 blocks.
+
+#### King-side castling
+
+![King-side castling](https://github.com/Vatsav14/Project-Pictures/blob/master/Chess/chess-kcastling.gif)
+
+#### Queen-side castling
+
+![Queen-side castling](https://github.com/Vatsav14/Project-Pictures/blob/master/Chess/chess-qcastling.gif)
+
+
