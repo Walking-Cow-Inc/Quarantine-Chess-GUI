@@ -7,7 +7,7 @@ We wanted to challenge ourselves to learn how to play chess during lockdown, and
 # Rules of the Game
 In general, there are 2 sides in a chess game, each denoted by the color of the pieces, namely Black and White. Each side has 8 pawns, 2 bishops, 2 knights, 2 rooks, a Queen and a King. All these pieces have a unique way of moving around the board that the player has to strategically take advantage of to complete the objective of the game. The primary objective of the game is to capture the King piece of the other side (Checkmate) using the pieces you have at your disposal.
 
-There are 3 possible outcomes in every game:
+**There are 3 possible outcomes in every game:**
 * The player with the Black pieces wins by capturing the White King
 * The player with the White pieces wins by capturing the Black King
 * The game ends in a stalemate where there are no possible moves for either of the players.
