@@ -54,7 +54,7 @@ A stalemate arises when a player has no possible moves that they can play that d
 ![Stalemate](https://github.com/Vatsav14/Project-Pictures/blob/master/Chess/chess-stalemate.gif)
 
 ### Castling
-Castling is a special kind of move in which the King piece is allowed to move more than one position in a single move. This is the only move which allows the King to move in this fashion. In King-side castling, the King moves 2 blocks across, compared to Queen-side castling where he can move 3 blocks.
+Castling is a special kind of move in which the King piece is allowed to move more than one position in a single move. This is the only move which allows the King to move in this fashion. In King-side castling, the Rook piece moves 2 blocks across, compared to Queen-side castling where it can move 3 blocks.
 
 #### King-side castling
 
