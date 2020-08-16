@@ -35,4 +35,10 @@ Finally, you can continue to open this project in the IDE or editor of your choi
 ## Demonstration
 ### Displaying the positions where each piece can move to
 When you click on a piece to move it, you can see the positions to which it is allowed to move to. When you click on a block which has no piece, a pop up box appears with an warning message. This also occurs when you try to move a piece when it is not your turn.
+
 ![Display possible moves](https://github.com/Vatsav14/Project-Pictures/blob/master/Chess/chess-demo1.gif)
+
+### Capturing pieces
+A piece can capture an opposing piece by moving to the block in which it is positioned. This eliminates the piece from the game.
+
+![Capturing pieces](https://github.com/Vatsav14/Project-Pictures/blob/master/Chess/chess-capture.gif)
