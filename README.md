@@ -16,6 +16,7 @@ Chess is quite a complex game and there have been a lot of new rules introduced 
 
 For a more comprehensive set of rules, you can check out the FIDE Laws of Chess using this [link.](https://www.fide.com/FIDE/handbook/LawsOfChess.pdf)
 
+<a name = "usage"/>
 ## Usage
 ### Prerequisites
 To run this game, you need to have Java installed on your computer along with a Java IDE or a text editor with a Java extension (like Atom or VS Code). We recommend the Eclipse IDE since that was what we used to build this application, but feel free to run it in an editor of your choice.
@@ -64,9 +65,15 @@ Castling is a special kind of move in which the King piece is allowed to move mo
 
 ![Queen-side castling](https://github.com/Vatsav14/Project-Pictures/blob/master/Chess/chess-qcastling.gif)
 
-### Pawn-conversion
+### Pawn conversion
 This is a move that allows a Pawn piece to convert into any other piece (except a King) when it reaches the final row of the opposing size.
 
 ![Pawn conversion](https://github.com/Vatsav14/Project-Pictures/blob/master/Chess/chess-convert.gif)
 
+## Contributing
+If you find any bugs or errors while playing around with the program, please feel free to highlight these under the issues tab. If you would like to contribute some code, feel free to follow the steps given below to create a pull request.
+
+### Step 1:
+* Option 1: Fork the repository using the `Fork` button on the top right.
+* Option 2: Clone the repo to your machine using the steps highlighted in the [Usage](#usage) section of the README
 
