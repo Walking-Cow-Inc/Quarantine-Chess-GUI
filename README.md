@@ -32,4 +32,6 @@ git clone https://github.com/Walking-Cow-Inc/Quarantine-Chess-GUI.git
 ```
 Finally, you can continue to open this project in the IDE or editor of your choice.
 
-
+## Demonstration
+### Displaying the positions where each piece can move to
+When you click on a piece to move it, you can see the positions to which it is allowed to move to. When you click on a block which has no piece, a pop up box appears with an warning message. This also occurs when you try to move a piece when it is not your turn.
