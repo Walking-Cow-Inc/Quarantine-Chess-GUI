@@ -19,6 +19,6 @@ For a more comprehensive set of rules, you can check out the FIDE Laws of Chess 
 # How to use this project
 #### To run this game, you need to have Java installed on your computer along with a Java IDE or a text editor with a Java extension (like Atom or VS Code). We recommend the Eclipse IDE since that was what we used to build this application, but feel free to run it in an editor of your choice.
 
-You can download the appropriate version of Java using this link: [https://java.com/en/download/help/download_options.xml](https://java.com/en/download/help/download_options.xml)
+You can download the appropriate version of Java using this link: https://java.com/en/download/help/download_options.xml
 
-You can download the Eclipse IDE using this link: [https://www.eclipse.org/downloads/]
+You can download the Eclipse IDE using this link: https://www.eclipse.org/downloads/
