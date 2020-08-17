@@ -36,38 +36,38 @@ Finally, you can continue to open this project in the IDE or editor of your choi
 ### Displaying the positions where each piece can move to
 When you click on a piece to move it, you can see the positions to which it is allowed to move to. When you click on a block which has no piece, a pop up box appears with an warning message. This also occurs when you try to move a piece when it is not your turn.
 
-![Display possible moves](https://github.com/Vatsav14/Project-Pictures/blob/master/Chess/chess-demo1.gif)
+![Display possible moves](demo/chess-demo1.gif)
 
 ### Capturing pieces
 A piece can capture an opposing piece by moving to the block in which it is positioned. This eliminates the piece from the game.
 
-![Capturing pieces](https://github.com/Vatsav14/Project-Pictures/blob/master/Chess/chess-capture.gif)
+![Capturing pieces](demo/chess-capture.gif)
 
 ### Checkmate
 As mentioned before, the objective of the game is to induce a checmate on the opposing team's King piece. When the game reaches this situation, the player who was able to capture the King wins the match. The checkmate shown in this animation is popularly called **Fool's Mate.** This is the fastest possible checkmate in the game of chess. You can read more about this [here.](https://www.chess.com/article/view/the-fastest-possible-checkmate-in-chess)
 
-![Fool's mate checkmate](https://github.com/Vatsav14/Project-Pictures/blob/master/Chess/chess-checkmate.gif)
+![Fool's mate checkmate](demo/chess-checkmate.gif)
 
 ### Stalemate
 A stalemate arises when a player has no possible moves that they can play that doesn't put their King piece in danger. When such a situation arises, the game is tied and both players walk away with a draw. The stalemate shown here is the fastest possible stalemate in the game of chess. Again, you can learn more about this [here.](https://www.chess.com/forum/view/game-showcase/fastest-stalemate-known-in-chess)
 
-![Stalemate](https://github.com/Vatsav14/Project-Pictures/blob/master/Chess/chess-stalemate.gif)
+![Stalemate](demo/chess-stalemate.gif)
 
 ### Castling
 Castling is a special kind of move in which the King piece is allowed to move more than one position in a single move. This is the only move which allows the King to move in this fashion. In King-side castling, the Rook piece moves 2 blocks across, compared to Queen-side castling where it can move 3 blocks.
 
 #### King-side castling
 
-![King-side castling](https://github.com/Vatsav14/Project-Pictures/blob/master/Chess/chess-kcastling.gif)
+![King-side castling](demo/chess-kcastling.gif)
 
 #### Queen-side castling
 
-![Queen-side castling](https://github.com/Vatsav14/Project-Pictures/blob/master/Chess/chess-qcastling.gif)
+![Queen-side castling](demo/chess-qcastling.gif)
 
 ### Pawn conversion
 This is a move that allows a Pawn piece to convert into any other piece (except a King) when it reaches the final row of the opposing size.
 
-![Pawn conversion](https://github.com/Vatsav14/Project-Pictures/blob/master/Chess/chess-convert.gif)
+![Pawn conversion](demo/chess-convert.gif)
 
 ## Contributing
 If you find any bugs or errors while playing around with the program, please feel free to highlight these under the Issues tab which you can find [here.](https://github.com/Walking-Cow-Inc/Quarantine-Chess-GUI/issues)
