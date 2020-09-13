@@ -85,6 +85,6 @@ If you would like to contribute some code, feel free to follow the steps given b
 * Submit a new pull request using `https://github.com/Walking-Cow-Inc/Quarantine-Chess-GUI/compare`
 
 ## Authors
-* Vatsav Sethupathi - [Vatsav14](https://github.com/Vatsav14)
 * Jaymin Desai - [JaDeBlue17](https://github.com/JaDeBlue17)
+* Vatsav Sethupathi - [Vatsav14](https://github.com/Vatsav14)
 
